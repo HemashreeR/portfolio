@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #050816;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: "Space Grotesk", sans-serif;
+}
+body {
+  background-image: url("./assets/bg3.png");
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: repeat-y; or no-repeat */
+  background-attachment: fixed; 
+  background-color: #050816;
+}
+
+.portfolio-bg {
+  background-image: url("./assets/bg3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  position: relative;
+  opacity: 1;
+}
+
+.portfolio-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.70); 
+  pointer-events: none;
+}
+
+.portfolio-bg > * {
+  position: relative;
+  z-index: 1;
+}   
