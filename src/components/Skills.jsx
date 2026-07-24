@@ -3,7 +3,7 @@ import { FaBook, FaCss3, FaGit, FaGithub, FaGitlab, FaGitSquare, FaHtml5, FaNode
 import { SiExpress, SiFirebase, SiJavascript, SiMongodb, SiPostman, SiTailwindcss, SiVsco } from 'react-icons/si'
 import { VscCode } from 'react-icons/vsc'
 
-const Skills = () => {
+const Skills = ({sectionRef}) => {
 
   const skillsData = [
     {
@@ -74,7 +74,7 @@ const Skills = () => {
     }
   ]
   return (
-    <section id='skills' className='w-full items-center'>
+    <section ref={sectionRef} id='skills' className='w-full items-center'>
       <div className='w-full flex flex-col justify-center items-center '>
         <div id='headingDiv' className='w-full flex gap-2 items-center justify-center font-bold text-3xl' >
           <div className='text-blue-300'>

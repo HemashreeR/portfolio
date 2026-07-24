@@ -2,6 +2,7 @@
 
 html{
     scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 body{
@@ -21,25 +22,3 @@ body {
   background-color: #050816;
 }
 
-.portfolio-bg {
-  background-image: url("./assets/bg3.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat-y;
-  background-attachment: fixed;
-  position: relative;
-  opacity: 1;
-}
-
-.portfolio-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(3, 7, 18, 0.70); 
-  pointer-events: none;
-}
-
-.portfolio-bg > * {
-  position: relative;
-  z-index: 1;
-}   

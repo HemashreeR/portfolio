@@ -3,7 +3,7 @@ import { FaCheckCircle } from 'react-icons/fa'
 import { LuUserRound } from 'react-icons/lu'
 
 
-const About = () => {
+const About = ({sectionRef}) => {
 
   const cardData = [
     {
@@ -31,7 +31,7 @@ const About = () => {
   ]
 
   return (
-    <section className='w-full flex flex-col' id='about'>
+    <section ref={sectionRef} className='w-full flex flex-col' id='about'>
       <div id='aboutDiv' className='flex flex-col items-center justify-center gap-6' >
         <div id='HeadingDiv ' className='flex items-center justify-center gap-3'>
           <span className='text-blue-300'>

@@ -2,31 +2,15 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FaMoon } from 'react-icons/fa'
 import logo from '../assets/logo.png'
 import {Link} from 'react-router-dom'
-const Navbar = () => {
+const Navbar = ({activeSection}) => {
 
-  const [activeSection, setActiveSection] = useState("home")
-
-  // let [count , setcount] = useState(0)
-  let count = useRef(0)
-  // let [prev ,setprev] = useState(0)
-  let prev = useRef(0)
-
-  useEffect(()=>{
-    prev.current = count.current
-    // setprev(count)
-    // setcount(count+1)
-    count.current++
-  },[activeSection])
-
-  console.log(count.current, "count")
-  console.log(prev.current, "prev")
-  console.log('\n')
+  console.log(activeSection)
 
   const setActiveStyle = (section)=>{
     if(activeSection == section){
-      return " text-xl relative after:absolute after:bottom-[-10px] hover:text-[#00E5FF] after:left-0 after:h-[2px]  after:bg-[#00E5FF] after:transition-all after:duration-300 after:w-full"
+      return " text-xl relative after:absolute after:bottom-[-10px] hover:text-[#00E5FF] after:left-0 after:h-[2px]  after:bg-[#00E5FF] after:transition-all after:duration-300 after:w-full text-[#00E5FF] "
     }
-    else return "relative text-xl"
+    else return "relative text-xl hover:text-[#00E5FF]"
   }
 
   const navElements = [
@@ -41,10 +25,12 @@ const Navbar = () => {
     {
       element: "skills",
       reference: "skills"
-    }, {
-      element: "projects",
-      reference: "projects"
-    }, {
+    }, 
+    // {
+    //   element: "projects",
+    //   reference: "projects"
+    // }, 
+    {
       element: "achievements",
       reference: "achievements"
     }, {
@@ -53,17 +39,17 @@ const Navbar = () => {
     },]
 
   return (
-    <nav id='NavBar' className=' sticky top-0 z-50 backdrop-blur-md flex bg-black/2 border-b border-white/10 shadow-[0_10px_30px_rgb(0,0,0,0.1)] '>
+    <nav id='NavBar' className=' sticky top-0 z-50 backdrop-blur-md flex bg-black/80 border-b border-white/10 shadow-[0_10px_30px_rgb(0,0,0,0.1)] '>
       <div id='navContainer' className=' w-full max-w-7xl capitalize text-s font-bold h-18 flex justify-between mx-auto items-center'>
         <div id='logo'>
-          <a href="#home"><img src={logo} alt="logo downloading..." className='w-20 h-20 ' onclick={() => setActiveSection("home")} /></a>
+          <a href="#home"><img src={logo} alt="logo downloading..." className='w-20 h-20 '  /></a>
         </div>
         <div id="NavEle" className='flex gap-16'>
             {/* <Link smooth to="/#contact">Features</Link> */}
           {
             navElements.map((element, i) => {
               return (
-                <a href={"#"+ element.reference} key={element.reference} onClick={() => setActiveSection(element.reference)}
+                <a href={"#"+ element.reference} key={element.reference}
                   className={setActiveStyle(element.reference)}
                 >{element.element}</a>
               )

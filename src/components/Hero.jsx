@@ -7,10 +7,32 @@ import Button from './Button'
 import { FaInstagram, FaLinkedin, FaGithub, FaEnvelope, FaReact, FaHtml5, FaCss3, FaNodeJs } from 'react-icons/fa'
 import { SiLeetcode, SiExpress, SiMongodb, SiMysql, SiTailwindcss } from 'react-icons/si'
 import { LuAArrowDown, LuArrowDown } from 'react-icons/lu'
+import resume from '../assets/resume.pdf'
 
-const Hero = () => {
+const Hero = ({sectionRef}) => {
 
-  const icons = [<FaEnvelope size={24} color='white' />, <FaGithub size={24} color='white' />, <FaInstagram size={24} color='white' />, <FaLinkedin size={24} color='white' />, <SiLeetcode size={24} color='white' />]
+  const icons = [
+  {
+    logo : <FaEnvelope size={24} color='white' />,
+    ref : "mailto:recipient@://hemashree519@gmail.com"
+  },
+  {
+    logo : <FaGithub size={24} color='white' />,
+    ref : "https://github.com/HemashreeR"
+  },
+  {
+    logo : <FaInstagram size={24} color='white' />,
+    ref : "https://www.instagram.com/hemashreeeeee/"
+  },
+  {
+    logo : <FaLinkedin size={24} color='white' />,
+    ref : "https://www.linkedin.com/in/hemashree-r-2026-grad/"
+  },
+  {
+    logo : <SiLeetcode size={24} color='white' />,
+    ref : "https://leetcode.com/u/Hemashree__R/"
+  }
+]
 
   const techStack = [
     {
@@ -52,7 +74,7 @@ const Hero = () => {
       techName: "Github"
     }]
   return (
-    <section id='home'
+    <section ref={sectionRef} id='home'
       className='relative w-full min-h-screen flex flex-col justify-around items-center'
     >
       {/* <div style={{ backgroundImage: `url(${bgImg3})` }}
@@ -69,16 +91,22 @@ const Hero = () => {
             user-friendly, and scalable web
             applications using modern technologies.</p>
           <div id="btnSection" className='flex gap-5 mt-2 w-1/2'>
-            <Button content={"Downlaod Resume"} color={"blue"} />
+          <a href={resume} download={"Hemashree_R.pdf"}>
+            <Button content={"Downlaod Resume"} color={"blue"}/>
+          </a>
+          <a href="#contact">
             <Button content={"Contact me"} color={"dark-blue"} />
+          </a>
           </div>
           <div id="icons" className='flex mt-2 w-1/2 justify-between'>
             {
               icons.map((icon, i) => {
                 return (
+                    <a href={icon.ref} target='_blank'>
                   <div className='py-3 px-3 w-fit rounded-full bg-[rgba(0, 0, 128, 0.3)] shadow-[0_0_5px_rgba(0,100,255,0.5)] cursor-pointer hover:bg-[#3B82F6]' key={i}>
-                    {icon}
+                      {icon.logo}
                   </div>
+                    </a> 
                 )
               })
             }

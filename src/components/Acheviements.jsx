@@ -3,7 +3,7 @@ import { FaClock, FaCode, FaHandPaper, FaHtml5, FaNewspaper, FaPaperPlane, FaSta
 import { LuTag } from 'react-icons/lu'
 import { SiElement, SiLeetcode, SiTga } from 'react-icons/si'
 
-const Acheviements = () => {
+const Acheviements = ({sectionRef}) => {
 
   const icons = [
     {
@@ -29,7 +29,7 @@ const Acheviements = () => {
   ]
 
   return (
-    <section className='flex flex-col items-center gap-10' id='achievements'>
+    <section ref={sectionRef} className='flex flex-col items-center gap-10' id='achievements'>
       <div className='flex items-center justify-center gap-3 text-3xl font-bold'>
         <FaClock color='lightblue' />
         <h1 className='border-b-4 border-blue-500 py-3'>Achievements</h1>
@@ -38,7 +38,7 @@ const Acheviements = () => {
         {
           icons.map((icon, i) => {
             return (
-              <div className='flex items-center gap-16 border border-blue-400 shadow-[0_0_10px_rgba(0,0,255,0.9)] px-6 py-7'>
+              <div className='flex items-center gap-16 border border-blue-400 shadow-[0_0_10px_rgba(0,0,255,0.9)] px-6 py-7' key={i}>
                 <div className=' text-7xl text-blue-600  drop-shadow-[0_0_2px_rgba(255,255,255,0.6)] opacity-70 bg-none w-30 h-30  flex justify-center items-center border rounded-xl'>
                   {icon.icon}
                 </div>

@@ -3,7 +3,7 @@ import { FaEnvelope, FaGithub, FaLocationArrow, FaMapMarkedAlt, FaPaperPlane, Fa
 import { LuLinkedin } from 'react-icons/lu'
 import Button from './Button'
 
-const Contact = () => {
+const Contact = ({sectionRef}) => {
 
   const inputStyle = "border w-100 h-13 rounded text-s px-2 border-blue-950/60 focus:border-blue-500 outline-0 bg-blue-900/10"
 
@@ -35,7 +35,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id='contact' className='w-full h-96 flex flex-col gap-10'>
+    <section ref={sectionRef} id='contact' className='w-full h-96 flex flex-col gap-10'>
       <div id='headingDiv' className='text-3xl font-bold flex gap-3 items-center justify-center'>
         <FaEnvelope color='lightblue'/>
         <h1 className='border-b-4 border-blue-500 py-3 w-fit'>Contact Me</h1>
