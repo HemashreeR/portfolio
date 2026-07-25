@@ -1,16 +1,66 @@
-# React + Vite
+# 💼 Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains my personal portfolio website built using **React.js** and **Tailwind CSS**. The project is designed to showcase my skills, projects, achievements, and provide an easy way for recruiters and developers to connect with me.
 
-Currently, two official plugins are available:
+> 🚧 This project is currently under active development, and new features and improvements are being added regularly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- Responsive and modern UI
+- Smooth scrolling navigation
+- Active navbar highlighting using Intersection Observer API
+- Hero, About, Skills, Projects, Achievements, and Contact sections
+- Contact form integrated with EmailJS
+- Automatic acknowledgment email after form submission
+- Resume download functionality
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- React.js
+- JavaScript (ES6+)
+- Tailwind CSS
+- HTML5
+- CSS3
+- EmailJS
+- React Icons
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-repository.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd your-repository
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## 📌 Project Status
+
+This project is currently in progress. I am continuously improving the UI, adding new features, and optimizing the overall user experience.
+
+## 👩‍💻 Author
+
+**Hemashree R**
+
+Frontend Developer | React Developer | MERN Stack Enthusiast
+
+---
+
+⭐ Thank you for visiting my repository! Feel free to explore the project and share your feedback.
