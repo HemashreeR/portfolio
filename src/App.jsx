@@ -9,6 +9,8 @@ import Footer from './components/Footer'
 import Acheviements from './components/Acheviements'
 import Contact from './components/Contact'
 import bgImg3 from './assets/bg3.png'
+import {Toaster} from 'react-hot-toast'
+
 
 
 const App = () => {
@@ -33,6 +35,7 @@ const App = () => {
 
   return (
     <div className = "">  
+    <Toaster position='top-center'/>
       <Navbar activeSection={activeSection} className = "nav" />
       <div className='flex flex-col gap-16 items-center'>
       <Hero sectionRef = {(element)=> refer.current[0] = element} />
