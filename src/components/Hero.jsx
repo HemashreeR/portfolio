@@ -14,7 +14,7 @@ const Hero = ({sectionRef}) => {
   const icons = [
   {
     logo : <FaEnvelope size={24} color='white' />,
-    ref : "mailto:recipient@://hemashree519@gmail.com"
+    ref : "#contact"
   },
   {
     logo : <FaGithub size={24} color='white' />,

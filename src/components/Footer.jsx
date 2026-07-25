@@ -61,7 +61,9 @@ const Footer = () => {
           {
             links.map((link,i)=>{
               return(
+                <a href={`#${link.reference}`}>
                 <li key={i} className='list-none text-s opacity-50 hover:text-blue-400 hover:opacity-100 hover:border-blue-400 hover:border-b w-fit cursor-pointer '>{link.element}</li>
+                </a>
               )
             })
           }
