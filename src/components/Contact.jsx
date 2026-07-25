@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { FaEnvelope, FaGithub, FaLocationArrow, FaMapMarkedAlt, FaPaperPlane, FaPhone } from 'react-icons/fa'
 import { LuLinkedin } from 'react-icons/lu'
 import Button from './Button'
+import emailjs from '@emailjs/browser'
 
 const Contact = ({sectionRef}) => {
+
+  const formRef = useRef(null)
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+
+    try{
+
+      await emailjs.sendForm(import.meta.env.VITE_SERVICE_ID,import.meta.env.VITE_RECEIVING_TEMPLATE_ID,formRef.current,import.meta.env.VITE_PUBLIC_KEY)
+      
+      await emailjs.sendForm(import.meta.env.VITE_SERVICE_ID,import.meta.env.VITE_SENDING_TEMPLATE_ID,formRef.current,import.meta.env.VITE_PUBLIC_KEY).then(
+        ()=>{
+          alert("Your message received successfully")
+          formRef.current.reset()
+        }
+      )
+    }
+    catch(e){
+      console.log(e)
+      alert("there was error while sending the message please try again")
+
+    }
+    }
 
   const inputStyle = "border w-100 h-13 rounded text-s px-2 border-blue-950/60 focus:border-blue-500 outline-0 bg-blue-900/10"
 
@@ -59,11 +82,11 @@ const Contact = ({sectionRef}) => {
           }
         </div>
         <div id="right" className='w-1/3 border-blue h-full flex flex-col items-center  px-9 py-8 bg-blue-900/10 shadow-[0_0_10px_rgba(0,0,255,0.3)] rounded-xl'>
-          <form action="" className='flex flex-col gap-5'>
-            <input type="text" name="name" id="name" placeholder='Your Name' className={inputStyle}/>
-            <input type="email" name="email" id="email" placeholder='Your Email' className={inputStyle}/>
-            <input type="text" name="subject" id="subject" placeholder='Subject' className={inputStyle} />
-            <textarea name="message" id="message" placeholder='Your Message' className={inputStyle} style={{height : "200px" , padding : "10px"}} ></textarea>
+          <form action="" ref={formRef} onSubmit={handleSubmit} className='flex flex-col gap-5'>
+            <input type="text" name="name" id="name" placeholder='Your Name' className={inputStyle} required/>
+            <input type="email" name="email" id="email" placeholder='Your Email' className={inputStyle} required/>
+            <input type="text" name="subject" id="subject" placeholder='Subject' className={inputStyle} required />
+            <textarea name="message" id="message" placeholder='Your Message' className={inputStyle} style={{height : "200px" , padding : "10px"}} required ></textarea>
             <Button content={"Send Message"} color={"blue"}/>
           </form>
         </div>

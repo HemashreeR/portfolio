@@ -57,7 +57,7 @@ const Navbar = ({activeSection}) => {
           }
         </div>
         <div id="iconDiv">
-          <button className='cursor-pointer' onClick={() => console.log("dark mode off")}>
+          <button className='cursor-pointer text-2xl' onClick={() => console.log("dark mode off")}>
             <FaMoon color='gold' className='bg-none hover:drop-shadow-[10px_10px_15px_rgba(234,255,8,0.9)]' />
           </button>
         </div>
