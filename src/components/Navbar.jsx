@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FaMoon } from 'react-icons/fa'
+import { FaBars, FaMoon } from 'react-icons/fa'
 import logo from '../assets/logo.png'
 import {Link} from 'react-router-dom'
 const Navbar = ({activeSection}) => {
 
-  console.log(activeSection)
+  const [isMenuOpen, setisMenuOpen] = useState(false)
 
   const setActiveStyle = (section)=>{
     if(activeSection == section){
@@ -13,6 +13,7 @@ const Navbar = ({activeSection}) => {
     else return "relative text-xl hover:text-[#00E5FF]"
   }
 
+  console.log(isMenuOpen)
   const navElements = [
     {
       element: "home",
@@ -39,12 +40,12 @@ const Navbar = ({activeSection}) => {
     },]
 
   return (
-    <nav id='NavBar' className=' sticky top-0 z-50 backdrop-blur-md flex bg-black/80 border-b border-white/10 shadow-[0_10px_30px_rgb(0,0,0,0.1)] '>
-      <div id='navContainer' className=' w-full max-w-7xl capitalize text-s font-bold h-18 flex justify-between mx-auto items-center'>
+    <nav id='NavBar' className=' sticky top-0 z-50 backdrop-blur-md flex bg-black/80 border-b border-white/10 shadow-[0_10px_30px_rgb(0,0,0,0.1)] md:flex-row flex-col'>
+      <div id='navContainer' className=' w-full max-w-7xl capitalize text-s font-bold h-18 flex justify-between  mx-auto items-center'>
         <div id='logo'>
           <a href="#home"><img src={logo} alt="logo downloading..." className='w-20 h-20 '  /></a>
         </div>
-        <div id="NavEle" className='flex gap-16'>
+        <div id="NavEle" className={isMenuOpen? 'hidden md:flex gap-16' : 'flex flex-col h-20 border '}>
             {/* <Link smooth to="/#contact">Features</Link> */}
           {
             navElements.map((element, i) => {
@@ -56,11 +57,9 @@ const Navbar = ({activeSection}) => {
             })
           }
         </div>
-        <div id="iconDiv">
-          <button className='cursor-pointer text-2xl' onClick={() => console.log("dark mode off")}>
-            <FaMoon color='gold' className='bg-none hover:drop-shadow-[10px_10px_15px_rgba(234,255,8,0.9)]' />
-          </button>
-        </div>
+        <button className='md:invisible' onClick={()=>setisMenuOpen(!isMenuOpen)}>
+          <FaBars/>
+        </button>
       </div>
     </nav>
   )
